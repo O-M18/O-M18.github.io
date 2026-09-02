@@ -1397,6 +1397,22 @@ ul {
 }
 
 /* ============ PROJECTS CATALOG (Netflix-style) ============ */
+.projects-more {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.projects-more .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.projects-more .btn i {
+  font-size: 1.1rem;
+}
+
 .catalog-hero {
   position: relative;
   z-index: 1;
