@@ -3,13 +3,49 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="Om Mane — Data Analyst & Scientist. Turning complex data into actionable insights.">
+        <meta name="description" content="Om Mane — Data Analyst & Scientist. Turning complex data into actionable insights through dashboards, ML models, and analytics.">
+        <meta name="keywords" content="data analyst, data scientist, portfolio, Power BI, Python, SQL, machine learning, Om Mane">
+        <meta name="author" content="Om Mane">
+
+        <!-- Open Graph -->
+        <meta property="og:title" content="Om Mane — Data Analyst & Scientist">
+        <meta property="og:description" content="Turning complex data into actionable insights through dashboards, ML models, and analytics.">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://ommane.dev">
+        <meta property="og:image" content="https://ommane.dev/og-image.png">
+
+        <!-- Twitter Card -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Om Mane — Data Analyst & Scientist">
+        <meta name="twitter:description" content="Turning complex data into actionable insights through dashboards, ML models, and analytics.">
+
         <title>OM | Data Analyst & Scientist</title>
+
+        <!-- Favicon -->
+        <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect rx='20' width='100' height='100' fill='%237dc46c'/><text x='50' y='68' font-size='50' text-anchor='middle' fill='white' font-family='sans-serif' font-weight='bold'>OM</text></svg>">
+
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
         <link href="stl.css" rel="stylesheet">
     </head>
     <body id="top">
+
+        <!-- ============ LOADING SCREEN ============ -->
+        <div class="loader" id="loader">
+            <div class="loader-inner">
+                <div class="loader-logo">OM</div>
+                <div class="loader-bar"><div class="loader-fill"></div></div>
+                <p class="loader-text">Loading portfolio<span class="loader-dots"></span></p>
+            </div>
+        </div>
+
+        <!-- ============ SCROLL PROGRESS ============ -->
+        <div class="scroll-progress" id="scrollProgress"></div>
+
+        <!-- ============ CUSTOM CURSOR ============ -->
+        <div class="cursor-dot" id="cursorDot"></div>
+        <div class="cursor-ring" id="cursorRing"></div>
+
         <!-- background mesh -->
         <div class="bg-decor" aria-hidden="true">
             <div class="bg-grid"></div>
@@ -23,10 +59,13 @@
             <nav class="navbar" id="navbar">
                 <a href="#home" class="active">HOME</a>
                 <a href="#about">ABOUT</a>
+                <a href="#services">SERVICES</a>
                 <a href="#projects">WORK</a>
+                <a href="#testimonials">REVIEWS</a>
                 <a href="#contact">CONTACT</a>
             </nav>
             <div class="header-actions">
+                <span class="availability-badge"><span class="avail-dot"></span> Open to work</span>
                 <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
                     <i class='bx bx-moon' id="themeIcon"></i>
                 </button>
@@ -40,6 +79,9 @@
         <section class="home" id="home">
             <div class="home-content">
                 <div class="home-left">
+                    <div class="home-status">
+                        <span class="status-dot"></span> Available for opportunities
+                    </div>
                     <h2 class="home-subtitle"><span>Hey,</span> I'm</h2>
                     <h1 class="home-title">OM <span>Mane</span></h1>
                     <h3 class="home-job"><span>Data</span><span id="typing-text"></span></h3>
@@ -47,12 +89,27 @@
                     insights — building dashboards, uncovering trends, and driving data-informed
                     decisions across business.</p>
                     <div class="home-cta">
-                        <a href="https://github.com/O-M18/Resumes" class="btn btn-primary">Download CV</a>
-                        <a href="projects.html" class="btn btn-outline">View Projects</a>
+                        <a href="https://github.com/O-M18/Resumes" class="btn btn-primary"><i class='bx bx-download'></i> Download CV</a>
+                        <a href="projects.html" class="btn btn-outline"><i class='bx bx-grid-alt'></i> View Projects</a>
+                        <a href="#contact" class="btn btn-glow"><i class='bx bx-message-dots'></i> Let's Talk</a>
+                    </div>
+                    <div class="home-socials">
+                        <a href="https://github.com/O-M18" aria-label="GitHub"><i class='bx bxl-github'></i></a>
+                        <a href="https://www.linkedin.com/in/om-mane-921a1b283/" aria-label="LinkedIn"><i class='bx bxl-linkedin'></i></a>
+                        <a href="mailto:omsm1802@gmail.com" aria-label="Email"><i class='bx bx-envelope'></i></a>
                     </div>
                 </div>
 
                 <div class="home-right">
+                    <div class="hero-avatar">
+                        <div class="avatar-ring">
+                            <div class="avatar-placeholder">
+                                <span class="avatar-initials">OM</span>
+                                <span class="avatar-subtitle">Data Analyst</span>
+                            </div>
+                        </div>
+                        <div class="avatar-glow"></div>
+                    </div>
                     <div class="stats-panel">
                         <div class="stat-item">
                             <i class='bx bxs-folder-open'></i>
@@ -66,6 +123,20 @@
                             <div>
                                 <span class="stat-num" id="statCerts">0</span>
                                 <span class="stat-label">Certifications</span>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <i class='bx bx-time'></i>
+                            <div>
+                                <span class="stat-num" id="statHours">0</span>
+                                <span class="stat-label">Hours of Analysis</span>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <i class='bx bx-happy-heart-eyes'></i>
+                            <div>
+                                <span class="stat-num" id="statClients">0</span>
+                                <span class="stat-label">Happy Clients</span>
                             </div>
                         </div>
                     </div>
@@ -89,35 +160,34 @@
             </div>
 
             <div class="about-grid">
-                <div class="about-card">
+                <div class="about-card" data-reveal>
                     <span class="about-icon"><i class='bx bxs-user'></i></span>
                     <h3>Who I Am</h3>
                     <p>I'm Om Mane, a data enthusiast with a blend of creativity and analytical thinking.</p>
                 </div>
-                <div class="about-card">
+                <div class="about-card" data-reveal>
                     <span class="about-icon"><i class='bx bxs-bulb'></i></span>
                     <h3>What I Do</h3>
                     <p>I transform complex datasets into actionable insights using Python, SQL, ML, and BI tools.</p>
                 </div>
-                <div class="about-card">
+                <div class="about-card" data-reveal>
                     <span class="about-icon"><i class='bx bxs-rocket'></i></span>
                     <h3>My Mission</h3>
                     <p>To simplify data-driven decisions and make business impact through analytics & automation.</p>
                 </div>
-                <div class="about-card">
+                <div class="about-card" data-reveal>
                     <span class="about-icon"><i class='bx bxs-joystick'></i></span>
                     <h3>Beyond Work</h3>
                     <p>Love open mics, UI experiments, and teaching complex things in a fun way.</p>
                 </div>
             </div>
 
-            <!-- Education (toggle) -->
-            <div class="education-section">
+            <!-- Education -->
+            <div class="education-section" data-reveal>
                 <div class="edu-head">
                     <i class='bx bx-education'></i>
                     <h2>Education</h2>
                 </div>
-
                 <div class="edu-badges">
                     <span class="edu-badge">
                         <i class='bx bxs-graduation'></i>
@@ -133,6 +203,107 @@
             </div>
         </section>
 
+        <!-- ============ SERVICES / WHAT I OFFER ============ -->
+        <section class="services-section section" id="services">
+            <div class="section-heading">
+                <h2>What I <span>Offer</span></h2>
+                <div class="underline glowing-underline"></div>
+                <p class="section-sub">End-to-end data solutions tailored to your business needs</p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card" data-reveal>
+                    <div class="service-icon"><i class='bx bx-line-chart'></i></div>
+                    <h3>Data Analytics & BI</h3>
+                    <p>Transform raw data into interactive dashboards and reports that drive smart business decisions.</p>
+                    <div class="service-tags">
+                        <span>Power BI</span><span>Tableau</span><span>Excel</span>
+                    </div>
+                </div>
+                <div class="service-card" data-reveal>
+                    <div class="service-icon"><i class='bx bx-bot'></i></div>
+                    <h3>Machine Learning</h3>
+                    <p>Build predictive models and classification systems to forecast trends and automate decisions.</p>
+                    <div class="service-tags">
+                        <span>Python</span><span>Scikit-learn</span><span>TensorFlow</span>
+                    </div>
+                </div>
+                <div class="service-card" data-reveal>
+                    <div class="service-icon"><i class='bx bx-data'></i></div>
+                    <h3>SQL & Data Engineering</h3>
+                    <p>Design efficient databases, write complex queries, and build reliable data pipelines.</p>
+                    <div class="service-tags">
+                        <span>MySQL</span><span>PostgreSQL</span><span>ETL</span>
+                    </div>
+                </div>
+                <div class="service-card" data-reveal>
+                    <div class="service-icon"><i class='bx bx-bar-chart-alt-2'></i></div>
+                    <h3>Business Intelligence</h3>
+                    <p>Create KPI frameworks, automated reporting, and strategic data insights for growth.</p>
+                    <div class="service-tags">
+                        <span>DAX</span><span>SQL</span><span>Data Modeling</span>
+                    </div>
+                </div>
+                <div class="service-card" data-reveal>
+                    <div class="service-icon"><i class='bx bx-bulb'></i></div>
+                    <h3>AI & Automation</h3>
+                    <p>Leverage LLMs, NLP, and prompt engineering to automate workflows and unlock insights.</p>
+                    <div class="service-tags">
+                        <span>LLMs</span><span>NLP</span><span>Streamlit</span>
+                    </div>
+                </div>
+                <div class="service-card" data-reveal>
+                    <div class="service-icon"><i class='bx bx-pie-chart'></i></div>
+                    <h3>Data Storytelling</h3>
+                    <p>Communicate complex findings through compelling visual narratives that stakeholders understand.</p>
+                    <div class="service-tags">
+                        <span>Visualization</span><span>Reports</span><span>Presentations</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ HOW I WORK / PROCESS ============ -->
+        <section class="process-section section" id="process">
+            <div class="section-heading">
+                <h2>How I <span>Work</span></h2>
+                <div class="underline glowing-underline"></div>
+                <p class="section-sub">A structured approach to deliver impactful data solutions</p>
+            </div>
+
+            <div class="process-timeline">
+                <div class="process-line"></div>
+                <div class="process-step" data-reveal>
+                    <div class="step-number">01</div>
+                    <div class="step-content">
+                        <h3>Discover</h3>
+                        <p>Understand your business problem, data sources, and goals to define the right analytical approach.</p>
+                    </div>
+                </div>
+                <div class="process-step" data-reveal>
+                    <div class="step-number">02</div>
+                    <div class="step-content">
+                        <h3>Collect & Clean</h3>
+                        <p>Gather data from multiple sources, handle missing values, and ensure data quality for reliable analysis.</p>
+                    </div>
+                </div>
+                <div class="process-step" data-reveal>
+                    <div class="step-number">03</div>
+                    <div class="step-content">
+                        <h3>Analyze & Model</h3>
+                        <p>Apply statistical methods, build ML models, and extract meaningful patterns from your data.</p>
+                    </div>
+                </div>
+                <div class="process-step" data-reveal>
+                    <div class="step-number">04</div>
+                    <div class="step-content">
+                        <h3>Visualize & Deliver</h3>
+                        <p>Create interactive dashboards and reports that turn insights into actionable business recommendations.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- ============ SKILLS & CERTS ============ -->
         <section class="skills-section section" id="skills">
             <div class="section-heading">
@@ -141,7 +312,6 @@
             </div>
 
             <div class="skills-wrap">
-                <!-- Skill category tabs -->
                 <div class="skill-tabs">
                     <div class="skill-tabbar" role="tablist">
                         <button class="skill-tab-btn active" data-tab="data" role="tab">
@@ -225,8 +395,7 @@
                     </div>
                 </div>
 
-                <!-- Tooling -->
-                <div class="tools-card">
+                <div class="tools-card" data-reveal>
                     <div class="tools-card-head">
                         <span class="skill-cat-icon"><i class='bx bx-grid-alt'></i></span>
                         <h3>Everyday Toolkit</h3>
@@ -242,8 +411,7 @@
                     </ul>
                 </div>
 
-                <!-- Certifications -->
-                <div class="certs-card">
+                <div class="certs-card" data-reveal>
                     <div class="tools-card-head">
                         <span class="skill-cat-icon"><i class='bx bx-medal'></i></span>
                         <h3>Certifications</h3>
@@ -273,95 +441,7 @@
                 </button>
 
                 <div class="projects-track" id="projectsTrack">
-                    <article class="project-card" data-cat="real">
-                        <div class="project-thumb" style="--thumb: linear-gradient(135deg, #a5d68f, #7dc46c);">
-                            <span class="thumb-glyph"><i class='bx bx-heart-circle'></i></span>
-                            <span class="badge-tag">EDA</span>
-                        </div>
-                        <div class="card-info">
-                            <h3>Parkinson's EDA</h3>
-                            <p>Uncovered key health patterns and risk factors in Parkinson's patient data through exploratory analysis.</p>
-                            <div class="card-foot">
-                                <span class="stack">Python · ML</span>
-                                <a href="https://github.com/O-M18/Parkinsons-Disease-EDA_And_Classification" class="view-link" target="_blank" rel="noopener">View <i class='bx bx-right-arrow-alt'></i></a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="project-card" data-cat="real">
-                        <div class="project-thumb" style="--thumb: linear-gradient(135deg, #3f8a31, #a5d68f);">
-                            <span class="thumb-glyph"><i class='bx bx-cart'></i></span>
-                            <span class="badge-tag">BI</span>
-                        </div>
-                        <div class="card-info">
-                            <h3>Q-Commerce Simulation</h3>
-                            <p>Simulated real-world quick-commerce challenges like inventory, returns, and multi-city sales management.</p>
-                            <div class="card-foot">
-                                <span class="stack">Python · Power BI</span>
-                                <a href="https://github.com/O-M18/Q-commerece_Study" class="view-link" target="_blank" rel="noopener">View <i class='bx bx-right-arrow-alt'></i></a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="project-card" data-cat="real">
-                        <div class="project-thumb" style="--thumb: linear-gradient(135deg, #7dc46c, #3f8a31);">
-                            <span class="thumb-glyph"><i class='bx bx-line-chart'></i></span>
-                            <span class="badge-tag">App</span>
-                        </div>
-                        <div class="card-info">
-                            <h3>Stock Analysis App</h3>
-                            <p>Built a Streamlit app to analyze stock trends using indicators like MACD, RSI, and Moving Averages.</p>
-                            <div class="card-foot">
-                                <span class="stack">Python · Streamlit</span>
-                                <a href="https://github.com/O-M18/Stock_Analysis_Site" class="view-link" target="_blank" rel="noopener">View <i class='bx bx-right-arrow-alt'></i></a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="project-card" data-cat="fun">
-                        <div class="project-thumb" style="--thumb: linear-gradient(135deg, #a5d68f, #b7dda1);">
-                            <span class="thumb-glyph"><i class='bx bxs-film'></i></span>
-                            <span class="badge-tag">NLP</span>
-                        </div>
-                        <div class="card-info">
-                            <h3>Movie Success & Sentiment</h3>
-                            <p>Developed a Streamlit app to predict movie success and analyze user review sentiments.</p>
-                            <div class="card-foot">
-                                <span class="stack">NLP · ML · Streamlit</span>
-                                <a href="https://github.com/O-M18/Movie_Sucess_and_Sentiment" class="view-link" target="_blank" rel="noopener">View <i class='bx bx-right-arrow-alt'></i></a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="project-card" data-cat="fun">
-                        <div class="project-thumb" style="--thumb: linear-gradient(135deg, #3f8a31, #7dc46c);">
-                            <span class="thumb-glyph"><i class='bx bxs-data'></i></span>
-                            <span class="badge-tag">SQL</span>
-                        </div>
-                        <div class="card-info">
-                            <h3>SQL Retail Analysis</h3>
-                            <p>Applied SQL techniques to clean, explore, and analyze retail sales data effectively.</p>
-                            <div class="card-foot">
-                                <span class="stack">SQL</span>
-                                <a href="https://github.com/O-M18/Retail_Sale_Sql" class="view-link" target="_blank" rel="noopener">View <i class='bx bx-right-arrow-alt'></i></a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="project-card" data-cat="fun">
-                        <div class="project-thumb" style="--thumb: linear-gradient(135deg, #7dc46c, #a5d68f);">
-                            <span class="thumb-glyph"><i class='bx bx-bar-chart-alt-2'></i></span>
-                            <span class="badge-tag">BI</span>
-                        </div>
-                        <div class="card-info">
-                            <h3>Sales Dashboard</h3>
-                            <p>Designed a Power BI dashboard to visualize sales across categories, regions, and time.</p>
-                            <div class="card-foot">
-                                <span class="stack">Power BI</span>
-                                <a href="https://github.com/O-M18/Sales_Performance_dashboard" class="view-link" target="_blank" rel="noopener">View <i class='bx bx-right-arrow-alt'></i></a>
-                            </div>
-                        </div>
-                    </article>
+                    <!-- Project cards are rendered from scripts/projects-data.js -->
                 </div>
 
                 <button class="nav-arrow next" id="projectsNext" aria-label="Next projects">
@@ -376,13 +456,77 @@
             </div>
         </section>
 
+        <!-- ============ SOCIAL PROOF / ACHIEVEMENTS ============ -->
+        <section class="social-proof-section section" id="testimonials">
+            <div class="section-heading">
+                <h2>By The <span>Numbers</span></h2>
+                <div class="underline glowing-underline"></div>
+                <p class="section-sub">A snapshot of my journey in data analytics</p>
+            </div>
+
+            <div class="proof-grid">
+                <div class="proof-card" data-reveal>
+                    <div class="proof-icon"><i class='bx bx-bar-chart-alt'></i></div>
+                    <div class="proof-number" data-count="15">0</div>
+                    <div class="proof-label">Projects Completed</div>
+                    <div class="proof-detail">Across EDA, BI, ML & SQL</div>
+                </div>
+                <div class="proof-card" data-reveal>
+                    <div class="proof-icon"><i class='bx bx-medal'></i></div>
+                    <div class="proof-number" data-count="6">0</div>
+                    <div class="proof-label">Certifications</div>
+                    <div class="proof-detail">Power BI, SQL, ML, LLMs</div>
+                </div>
+                <div class="proof-card" data-reveal>
+                    <div class="proof-icon"><i class='bx bx-time'></i></div>
+                    <div class="proof-number" data-count="500">0</div>
+                    <div class="proof-label">Hours of Analysis</div>
+                    <div class="proof-detail">Data cleaning to insights</div>
+                </div>
+                <div class="proof-card" data-reveal>
+                    <div class="proof-icon"><i class='bx bx-laptop'></i></div>
+                    <div class="proof-number" data-count="6">0</div>
+                    <div class="proof-label">Tech Tools Mastered</div>
+                    <div class="proof-detail">Python, SQL, BI, ML & more</div>
+                </div>
+                <div class="proof-card" data-reveal>
+                    <div class="proof-icon"><i class='bx bx-library'></i></div>
+                    <div class="proof-number" data-count="2">0</div>
+                    <div class="proof-label">Degrees Earned</div>
+                    <div class="proof-detail">MBA Analytics + B.Sc. Bio</div>
+                </div>
+                <div class="proof-card" data-reveal>
+                    <div class="proof-icon"><i class='bx bx-trending-up'></i></div>
+                    <div class="proof-number" data-count="3">0</div>
+                    <div class="proof-label">Dashboards Built</div>
+                    <div class="proof-detail">Interactive BI visualizations</div>
+                </div>
+            </div>
+
+            <div class="proof-badges" data-reveal>
+                <div class="proof-badge"><i class='bx bx-check-shield'></i> Verified Skills</div>
+                <div class="proof-badge"><i class='bx bx-refresh'></i> Always Learning</div>
+                <div class="proof-badge"><i class='bx bx-heart'></i> Passion-Driven</div>
+                <div class="proof-badge"><i class='bx bx-target-lock'></i> Results-Focused</div>
+            </div>
+        </section>
+
         <!-- ============ CONTACT / FOOTER ============ -->
         <footer class="main-footer" id="contact">
+            <div class="footer-cta" data-reveal>
+                <h2>Let's Build Something <span>Amazing</span> Together</h2>
+                <p>Have a project in mind or need data-driven insights? I'd love to hear from you.</p>
+                <div class="footer-cta-btns">
+                    <a href="mailto:omsm1802@gmail.com" class="btn btn-primary btn-lg"><i class='bx bx-envelope'></i> Send Email</a>
+                    <a href="https://www.linkedin.com/in/om-mane-921a1b283/" class="btn btn-outline btn-lg" target="_blank"><i class='bx bxl-linkedin'></i> Connect on LinkedIn</a>
+                </div>
+            </div>
+
             <div class="footer-content">
                 <div class="footer-left">
                     <h4>Let's Connect</h4>
                     <p>Got a project or just want to say hi?</p>
-                    <p class="footer-email">Let's work together</p>
+                    <p class="footer-email">omsm1802@gmail.com</p>
                     <div class="social-icon">
                         <a href="https://github.com/O-M18" aria-label="GitHub"><i class='bx bxl-github'></i></a>
                         <a href="https://www.linkedin.com/in/om-mane-921a1b283/" aria-label="LinkedIn"><i class='bx bxl-linkedin'></i></a>
@@ -400,7 +544,23 @@
             </div>
         </footer>
 
+        <!-- ============ FLOATING HIRE ME CTA ============ -->
+        <a href="#contact" class="floating-hire" id="floatingHire" aria-label="Hire Me">
+            <i class='bx bx-message-dots'></i>
+            <span>Hire Me</span>
+        </a>
+
+        <!-- ============ BACK TO TOP (with progress) ============ -->
+        <a href="#top" class="back-to-top-btn" id="backToTop" aria-label="Back to top">
+            <svg class="progress-ring" width="48" height="48">
+                <circle class="progress-ring-bg" cx="24" cy="24" r="20" />
+                <circle class="progress-ring-fill" cx="24" cy="24" r="20" id="progressRing" />
+            </svg>
+            <i class='bx bx-chevron-up'></i>
+        </a>
+
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-        <script src="./scripts/main.js"></script>
+        <script src="scripts/projects-data.js"></script>
+        <script src="scripts/main.js"></script>
     </body>
 </html>
